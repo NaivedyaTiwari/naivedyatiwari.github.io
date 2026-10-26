@@ -1,0 +1,1190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Naivedya Tiwari</title>
+<meta name="description" content="Product Manager working on AI systems and B2B SaaS. Case studies in evaluation, pricing and retention.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap">
+<style>
+/* Layout: a measurement log. Single left-aligned reading column, rules instead of
+   cards for structure, monospace reserved for figures and labels. */
+:root {
+  --bg: #F6F7F9;
+  --surface: #FFFFFF;
+  --fg: #15191E;
+  --fg-muted: #4A535E;
+  --fg-faint: #6E7883;
+  --rule: #DEE3E8;
+  --rule-soft: #EAEDF1;
+  --accent: #9A5B14;
+  --accent-soft: #F2E7D6;
+
+  --display: "Newsreader", Georgia, "Times New Roman", serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --shell: 72rem;
+  --read: 38rem;
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0F1317;
+    --surface: #161B21;
+    --fg: #E6EAEF;
+    --fg-muted: #9BA6B2;
+    --fg-faint: #78838F;
+    --rule: #252C34;
+    --rule-soft: #1C2228;
+    --accent: #E3A857;
+    --accent-soft: #2A2016;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #0F1317;
+  --surface: #161B21;
+  --fg: #E6EAEF;
+  --fg-muted: #9BA6B2;
+  --fg-faint: #78838F;
+  --rule: #252C34;
+  --rule-soft: #1C2228;
+  --accent: #E3A857;
+  --accent-soft: #2A2016;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--body);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection { background: var(--accent-soft); color: var(--fg); }
+
+a { color: inherit; }
+
+/* ---------- shell ---------- */
+
+.wrap {
+  width: 100%;
+  max-width: var(--shell);
+  margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* ---------- header ---------- */
+
+.topbar {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 20;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: saturate(1.4) blur(10px);
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  background: var(--bg);
+  z-index: 21;
+}
+
+.topbar .wrap {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-block: 0.7rem;
+}
+
+.mark {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fg);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav {
+  display: flex;
+  gap: 1.1rem;
+  margin-left: auto;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.nav a {
+  font-size: 0.82rem;
+  color: var(--fg-muted);
+  text-decoration: none;
+  padding-block: 0.15rem;
+  border-bottom: 1px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.nav a:hover { color: var(--fg); }
+.nav a.is-active { color: var(--accent); border-bottom-color: var(--accent); }
+
+@media (max-width: 640px) {
+  .nav { display: none; }
+}
+
+.theme-btn {
+  background: none;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  color: var(--fg-muted);
+  width: 2rem;
+  height: 2rem;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  padding: 0;
+  flex: none;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.theme-btn:hover { color: var(--fg); border-color: var(--fg-faint); }
+.theme-btn svg { width: 15px; height: 15px; display: block; }
+
+@media (max-width: 640px) {
+  .theme-btn { margin-left: auto; }
+}
+
+/* ---------- hero ---------- */
+
+.hero { padding-block: 4.5rem 3rem; }
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 1.25rem;
+}
+
+h1 {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(2.6rem, 7vw, 4.25rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.6rem;
+  text-wrap: balance;
+}
+
+.role {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: clamp(1.1rem, 2.6vw, 1.4rem);
+  color: var(--fg-muted);
+  margin: 0 0 2rem;
+}
+
+.lead {
+  max-width: var(--read);
+  font-size: clamp(1rem, 1.6vw, 1.12rem);
+  line-height: 1.68;
+  color: var(--fg-muted);
+  margin: 0 0 2.25rem;
+}
+
+.lead strong { color: var(--fg); font-weight: 500; }
+
+.hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.btn {
+  font-family: var(--body);
+  font-size: 0.86rem;
+  font-weight: 500;
+  padding: 0.52rem 1rem;
+  border-radius: 2px;
+  border: 1px solid var(--rule);
+  background: var(--surface);
+  color: var(--fg);
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.btn:hover { border-color: var(--fg-faint); }
+
+.btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #FFFFFF;
+}
+
+:root[data-theme="dark"] .btn-primary { color: #15191E; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .btn-primary { color: #15191E; }
+}
+
+.btn-primary:hover { opacity: 0.9; border-color: var(--accent); }
+
+/* ---------- figures strip ---------- */
+
+.figures {
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.fig {
+  padding: 1.4rem 1.25rem 1.4rem 0;
+  border-right: 1px solid var(--rule-soft);
+  min-width: 0;
+}
+
+.fig:last-child { border-right: 0; }
+
+.fig b {
+  display: block;
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+  font-size: clamp(1.3rem, 3vw, 1.75rem);
+  font-weight: 500;
+  color: var(--fg);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+.fig span {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: var(--fg-faint);
+}
+
+@media (max-width: 720px) {
+  .figures { grid-template-columns: repeat(2, 1fr); }
+  .fig { padding-right: 1rem; }
+  .fig:nth-child(2) { border-right: 0; }
+  .fig:nth-child(-n+2) { border-bottom: 1px solid var(--rule-soft); }
+}
+
+/* ---------- sections ---------- */
+
+section { padding-block: 4rem; }
+
+.sec-head {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.9rem;
+}
+
+.sec-head h2 {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(1.5rem, 3.4vw, 2rem);
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+.sec-head .count {
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  color: var(--fg-faint);
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+.sec-intro {
+  max-width: var(--read);
+  color: var(--fg-muted);
+  margin: -1.4rem 0 2.5rem;
+}
+
+/* ---------- case studies ---------- */
+
+.cases { display: grid; gap: 0; }
+
+.case {
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+.case:first-child { border-top: 1px solid var(--rule-soft); }
+
+.case > summary {
+  list-style: none;
+  cursor: pointer;
+  padding-block: 1.6rem;
+  display: grid;
+  grid-template-columns: 2.5rem 1fr auto;
+  gap: 1rem;
+  align-items: start;
+}
+
+.case > summary::-webkit-details-marker { display: none; }
+
+.case-no {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--accent);
+  padding-top: 0.3rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.case-head { min-width: 0; }
+
+.case-title {
+  display: block;
+  font-family: var(--display);
+  font-size: clamp(1.2rem, 2.6vw, 1.45rem);
+  font-weight: 500;
+  line-height: 1.25;
+  margin: 0 0 0.4rem;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+.case-meta {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  color: var(--fg-faint);
+  letter-spacing: 0.02em;
+}
+
+.case-toggle {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--fg-faint);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 0.25rem 0.7rem;
+  white-space: nowrap;
+  margin-top: 0.2rem;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.case > summary:hover .case-toggle { color: var(--fg); border-color: var(--fg-faint); }
+.case[open] .case-toggle::after { content: "Close"; }
+.case:not([open]) .case-toggle::after { content: "Read"; }
+
+.case-body {
+  padding: 0 0 2.2rem 3.5rem;
+  max-width: calc(var(--read) + 3.5rem);
+}
+
+@media (max-width: 640px) {
+  .case > summary { grid-template-columns: 1.8rem 1fr; }
+  .case-toggle { display: none; }
+  .case-body { padding-left: 1.8rem; }
+}
+
+.case-body h4 {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+  margin: 1.6rem 0 0.5rem;
+  font-weight: 500;
+}
+
+.case-body h4:first-child { margin-top: 0; }
+
+.case-body p { margin: 0 0 0.9rem; color: var(--fg-muted); }
+.case-body p:last-child { margin-bottom: 0; }
+.case-body strong { color: var(--fg); font-weight: 500; }
+
+.result {
+  margin: 1.6rem 0 0;
+  padding: 0.9rem 1.1rem;
+  background: var(--surface);
+  border-left: 2px solid var(--accent);
+  font-size: 0.95rem;
+}
+
+.result p { margin: 0; color: var(--fg); }
+
+.caveat {
+  margin-top: 1.6rem;
+  padding-top: 1.1rem;
+  border-top: 1px dashed var(--rule);
+}
+
+.caveat h4 { color: var(--accent); margin-top: 0; }
+
+/* ---------- experience ---------- */
+
+.roles { display: grid; gap: 2.5rem; }
+
+.role-item {
+  display: grid;
+  grid-template-columns: 11rem 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 760px) {
+  .role-item { grid-template-columns: 1fr; gap: 0.6rem; }
+}
+
+.role-when {
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  color: var(--fg-faint);
+  font-variant-numeric: tabular-nums;
+  padding-top: 0.25rem;
+}
+
+.role-main { min-width: 0; max-width: var(--read); }
+
+.role-title {
+  font-family: var(--display);
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 0 0 0.15rem;
+  letter-spacing: -0.01em;
+}
+
+.role-org {
+  font-size: 0.88rem;
+  color: var(--accent);
+  margin: 0 0 0.9rem;
+}
+
+.role-main ul { margin: 0; padding-left: 1.05rem; display: grid; gap: 0.5rem; }
+.role-main li { color: var(--fg-muted); font-size: 0.95rem; }
+.role-main li::marker { color: var(--fg-faint); }
+
+/* ---------- toolkit ---------- */
+
+.kit { display: grid; gap: 1.75rem; }
+
+.kit-row {
+  display: grid;
+  grid-template-columns: 11rem 1fr;
+  gap: 1.5rem;
+  align-items: baseline;
+}
+
+@media (max-width: 760px) {
+  .kit-row { grid-template-columns: 1fr; gap: 0.6rem; }
+}
+
+.kit-label {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+}
+
+.tags { display: flex; flex-wrap: wrap; gap: 0.4rem; min-width: 0; }
+
+.tag {
+  font-size: 0.82rem;
+  padding: 0.22rem 0.6rem;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  color: var(--fg-muted);
+  background: var(--surface);
+}
+
+/* ---------- two column closing ---------- */
+
+.pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+@media (max-width: 760px) {
+  .pair { grid-template-columns: 1fr; gap: 2.5rem; }
+}
+
+.sub-h {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+  margin: 0 0 1.1rem;
+  font-weight: 500;
+}
+
+.stack { display: grid; gap: 1.1rem; }
+
+.entry p { margin: 0; }
+.entry .t { font-weight: 500; font-size: 0.97rem; }
+.entry .d { font-size: 0.88rem; color: var(--fg-muted); }
+.entry .w { font-family: var(--mono); font-size: 0.74rem; color: var(--fg-faint); margin-top: 0.15rem; }
+
+/* ---------- contact ---------- */
+
+.contact { border-top: 1px solid var(--rule); }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: end;
+}
+
+@media (max-width: 760px) {
+  .contact-grid { grid-template-columns: 1fr; align-items: start; }
+}
+
+.contact h2 {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+  margin: 0 0 0.7rem;
+  letter-spacing: -0.02em;
+}
+
+.contact p { max-width: var(--read); color: var(--fg-muted); margin: 0 0 1.6rem; }
+
+.lines { display: grid; gap: 0.55rem; }
+
+.line {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.line .k {
+  color: var(--fg-faint);
+  width: 4.5rem;
+  flex: none;
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.line .v { color: var(--fg); word-break: break-all; }
+.line a.v { text-decoration: none; border-bottom: 1px solid var(--rule); }
+.line a.v:hover { border-bottom-color: var(--accent); color: var(--accent); }
+
+.copy {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: none;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  color: var(--fg-faint);
+  padding: 0.15rem 0.45rem;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.copy:hover { color: var(--fg); border-color: var(--fg-faint); }
+.copy.done { color: var(--accent); border-color: var(--accent); }
+
+footer {
+  border-top: 1px solid var(--rule-soft);
+  padding-block: 2rem 3rem;
+}
+
+footer .wrap {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--fg-faint);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+section[id] { scroll-margin-top: 5rem; }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="mark" href="#top">Naivedya Tiwari</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#toolkit">Toolkit</a>
+      <a href="#background">Background</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch colour theme">
+      <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="4"></circle>
+        <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <div class="wrap hero">
+    <p class="eyebrow">Bengaluru, India · Open to new roles</p>
+    <h1>Naivedya Tiwari</h1>
+    <p class="role">Product Manager, AI systems and B2B SaaS</p>
+    <p class="lead">
+      I work on products where the output is probabilistic and <strong>&ldquo;correct&rdquo; is a judgment call</strong>.
+      For the last year and a half I owned product for an agentic AI platform used by 2,500+ people, where the real job
+      was deciding what good looked like and then proving whether we had it. Before product, two years as a software
+      engineer building data pipelines, which is still how I prefer to answer a question: query it myself.
+    </p>
+    <div class="hero-links">
+      <a class="btn btn-primary" href="#work">Read the case studies</a>
+      <a class="btn" href="https://www.linkedin.com/in/naivedya-tiwari" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="#contact">Get in touch</a>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="figures">
+      <div class="fig"><b>5 yrs</b><span>Across engineering, data and product</span></div>
+      <div class="fig"><b>2,500+</b><span>Users on the platform I owned</span></div>
+      <div class="fig"><b>10</b><span>People in the QA function I led</span></div>
+      <div class="fig"><b>7</b><span>Third-party SaaS integrations delivered</span></div>
+    </div>
+  </div>
+
+  <!-- ============ WORK ============ -->
+  <section id="work" class="wrap">
+    <div class="sec-head">
+      <h2>Selected work</h2>
+      <span class="count">04 case studies</span>
+    </div>
+    <p class="sec-intro">
+      Four decisions from Jeeva AI, an agentic AI sales platform. Each one includes what the data said,
+      what we changed, and where I was wrong.
+    </p>
+
+    <div class="cases">
+
+      <details class="case">
+        <summary>
+          <span class="case-no">01</span>
+          <span class="case-head">
+            <span class="case-title">Finding the real cause of churn</span>
+            <span class="case-meta">Retention · Jeeva AI · 2026</span>
+          </span>
+          <span class="case-toggle"></span>
+        </summary>
+        <div class="case-body">
+          <h4>The problem</h4>
+          <p>Users were signing up and not coming back. The working assumption across the team was that onboarding was too long.</p>
+
+          <h4>What I did</h4>
+          <p>
+            Rather than act on the assumption, I pulled event data from PostHog and GA4 alongside MongoDB queries on user
+            records, and grouped people by where they stopped: signed up but never activated, activated once and never
+            returned, and genuinely recurring.
+          </p>
+          <p>
+            Two separate causes showed up. The core agentic feature was failing in production, so users who did reach it got an
+            unreliable experience and left. Separately, onboarding was long enough that a large share never reached the
+            product at all.
+          </p>
+
+          <h4>What changed</h4>
+          <p>
+            I ran failure-mode analysis on the agent and took the findings to engineering so we fixed causes rather than
+            symptoms. In parallel we cut onboarding down to a single agentic prompt, so new users hit value immediately.
+          </p>
+
+          <div class="result">
+            <p><strong>Result.</strong> Reported issues fell 45&ndash;50%. AI feature adoption grew 35&ndash;40%.</p>
+          </div>
+
+          <div class="caveat">
+            <h4>What the assumption missed</h4>
+            <p>
+              The team was half right. Onboarding was a genuine problem, but fixing it alone would have left the larger
+              one untouched, and we would have concluded the fix had failed.
+            </p>
+          </div>
+        </div>
+      </details>
+
+      <details class="case">
+        <summary>
+          <span class="case-no">02</span>
+          <span class="case-head">
+            <span class="case-title">Repricing credits against real consumption</span>
+            <span class="case-meta">Pricing &amp; unit economics · Jeeva AI · 2026</span>
+          </span>
+          <span class="case-toggle"></span>
+        </summary>
+        <div class="case-body">
+          <h4>The problem</h4>
+          <p>Conversion was healthy but the unit economics were not, and I suspected the credits bundled at each price point were wrong.</p>
+
+          <h4>What I did</h4>
+          <p>
+            I tracked signup-to-conversion in PostHog and pulled consumption data from existing product-led customers to
+            model how fast people actually burned credits. That gave a baseline for what a customer genuinely costs per package.
+          </p>
+          <p>
+            The finding: credits were too low for what people were paying. Users were hitting limits and stalling, which was
+            damaging retention as much as revenue.
+          </p>
+
+          <h4>What changed</h4>
+          <p>
+            We raised prices while tripling the credit allocation, on the reasoning that heavier usage would not hurt margin
+            much at the higher tier, since consumption data showed most users never approached the new ceiling. We also made
+            the credit card mandatory and pushed toward annual plans. I ran it as an A/B test on pricing, with a separate
+            with-card versus without-card test on signup.
+          </p>
+
+          <div class="result">
+            <p><strong>Result.</strong> Signups held. Unit economics came in below forecast.</p>
+          </div>
+
+          <div class="caveat">
+            <h4>Where the model was wrong</h4>
+            <p>
+              My consumption assumption came from older cohorts, and usage at the new tier ran heavier than they predicted.
+              I reported the gap rather than the headline, and we adjusted pricing from there.
+            </p>
+          </div>
+        </div>
+      </details>
+
+      <details class="case">
+        <summary>
+          <span class="case-no">03</span>
+          <span class="case-head">
+            <span class="case-title">Defining what &ldquo;correct&rdquo; means for a probabilistic product</span>
+            <span class="case-meta">AI evaluation · Jeeva AI · 2025&ndash;2026</span>
+          </span>
+          <span class="case-toggle"></span>
+        </summary>
+        <div class="case-body">
+          <h4>The problem</h4>
+          <p>
+            Agentic AI does not return the same answer twice. Without an agreed definition of good, every release argument
+            becomes a matter of opinion and the loudest bug wins.
+          </p>
+
+          <h4>What I did</h4>
+          <p>
+            I built an evaluation framework around three measures with baselines and acceptance bands: hallucination rate,
+            latency, and context loss across multi-turn interactions. These became release gates rather than advisory metrics.
+          </p>
+          <p>
+            Underneath that: prompt and prompt-chain testing, scenario testing against real user conversation flows, and RAG
+            retrieval validation against a chunked Notion and Confluence knowledge base, checking that answers were grounded
+            in the correct source rather than plausible but unsupported. Failures were traced through LangSmith and system
+            data to separate model limitations from retrieval, context handling and integration problems.
+          </p>
+
+          <div class="result">
+            <p><strong>Result.</strong> Reported issues fell 45&ndash;50%, with recurring failure modes documented for engineering rather than rediscovered each sprint.</p>
+          </div>
+
+          <div class="caveat">
+            <h4>The hard part</h4>
+            <p>
+              Measuring is the easy half. Agreeing what &ldquo;correct&rdquo; means when there is no single right answer is
+              the actual work, and it is a product decision rather than a technical one.
+            </p>
+          </div>
+        </div>
+      </details>
+
+      <details class="case">
+        <summary>
+          <span class="case-no">04</span>
+          <span class="case-head">
+            <span class="case-title">Pulling a feature after it shipped</span>
+            <span class="case-meta">Post-implementation review · Jeeva AI · 2026</span>
+          </span>
+          <span class="case-toggle"></span>
+        </summary>
+        <div class="case-body">
+          <h4>The problem</h4>
+          <p>We shipped a memory feature so the agent could carry context about users between sessions.</p>
+
+          <h4>What I found</h4>
+          <p>
+            In post-implementation review it became clear that users had no way to correct or edit what the system had
+            stored about them. A wrong inference stayed wrong, and kept shaping every later interaction.
+          </p>
+
+          <h4>What I did</h4>
+          <p>
+            I judged that structural rather than something iteration would fix, and made the case to pull it and rebuild
+            rather than keep spending engineering time on the version we had.
+          </p>
+
+          <div class="result">
+            <p><strong>Result.</strong> The feature came out. That engineering time went to work with a clearer payoff.</p>
+          </div>
+
+          <div class="caveat">
+            <h4>What I would change</h4>
+            <p>
+              This should have surfaced in design review, not after launch. &ldquo;What happens when the model gets this
+              wrong, and can the user fix it?&rdquo; is now a question I ask before building anything that stores inferences
+              about people.
+            </p>
+          </div>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section id="experience" class="wrap">
+    <div class="sec-head">
+      <h2>Experience</h2>
+      <span class="count">2019 &ndash; 2026</span>
+    </div>
+
+    <div class="roles">
+
+      <article class="role-item">
+        <div class="role-when">Jun 2025 &ndash; Sep 2026</div>
+        <div class="role-main">
+          <h3 class="role-title">Product Manager</h3>
+          <p class="role-org">Jeeva AI · Pune, India (HQ San Francisco)</p>
+          <ul>
+            <li>Owned product for a B2B SaaS agentic AI platform serving 2,500+ users across 10+ stakeholder teams.</li>
+            <li>Identified the opportunity for new AI capability, made the case to the CEO, and took an AI notetaker and AI inbox from requirement through build to launch.</li>
+            <li>Ran product-led growth across onboarding, pricing, credits and referrals, using controlled A/B tests to decide what shipped.</li>
+            <li>Scoped and delivered integrations across seven third-party platforms including Salesforce, HubSpot, Zoho, Airtable and Notion.</li>
+            <li>Led a 10-person QA function alongside product ownership, after being promoted from QA Engineer in the first month.</li>
+            <li>Operated SOC 2 change and access controls: production approval gates, change records, access reviews and release evidence.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="role-item">
+        <div class="role-when">Sep 2021 &ndash; Jul 2023</div>
+        <div class="role-main">
+          <h3 class="role-title">Software Engineer</h3>
+          <p class="role-org">Carelon Global Solutions · Bengaluru, India</p>
+          <ul>
+            <li>Designed and optimised high-volume data pipelines in SQL, Python and cloud-native services, improving end-to-end processing performance by around 40%.</li>
+            <li>Owned ETL frameworks and validation suites, automating data quality checks for consistent outputs across environments.</li>
+            <li>Built T-SQL stored procedures, triggers and performance-tuned queries on SQL Server and Azure SQL Managed Instance.</li>
+            <li>Worked with business stakeholders to define KPIs and deliver Tableau dashboards, with data flow diagrams and runbooks behind them.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="role-item">
+        <div class="role-when">May 2019 &ndash; Jul 2021</div>
+        <div class="role-main">
+          <h3 class="role-title">Software Engineer</h3>
+          <p class="role-org">Dexter Offices · Bengaluru, India</p>
+          <ul>
+            <li>Led the move from manual to automated regression testing with Selenium and JavaScript, cutting regression cycles by around 40% across Chrome, Firefox, Edge and mobile.</li>
+            <li>Created test cases, checklists and documented workflows that improved coverage and cut turnaround time by around 30%.</li>
+            <li>Supported UAT across 500+ client deployments, working in Agile sprints and tracking defects through Jira and Confluence.</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============ TOOLKIT ============ -->
+  <section id="toolkit" class="wrap">
+    <div class="sec-head">
+      <h2>Toolkit</h2>
+      <span class="count">Things I actually use</span>
+    </div>
+
+    <div class="kit">
+      <div class="kit-row">
+        <div class="kit-label">AI &amp; evaluation</div>
+        <div class="tags">
+          <span class="tag">LLM evaluation</span>
+          <span class="tag">RAG retrieval validation</span>
+          <span class="tag">Prompt &amp; prompt-chain testing</span>
+          <span class="tag">Agentic workflow testing</span>
+          <span class="tag">Failure-mode analysis</span>
+          <span class="tag">LangSmith</span>
+        </div>
+      </div>
+      <div class="kit-row">
+        <div class="kit-label">Data &amp; analysis</div>
+        <div class="tags">
+          <span class="tag">SQL</span>
+          <span class="tag">T-SQL</span>
+          <span class="tag">Python</span>
+          <span class="tag">MongoDB</span>
+          <span class="tag">ETL frameworks</span>
+          <span class="tag">PostHog</span>
+          <span class="tag">GA4</span>
+          <span class="tag">Tableau</span>
+        </div>
+      </div>
+      <div class="kit-row">
+        <div class="kit-label">Product &amp; delivery</div>
+        <div class="tags">
+          <span class="tag">Requirements &amp; acceptance criteria</span>
+          <span class="tag">A/B testing</span>
+          <span class="tag">Roadmap &amp; prioritisation</span>
+          <span class="tag">UAT &amp; release readiness</span>
+          <span class="tag">Jira</span>
+          <span class="tag">Confluence</span>
+          <span class="tag">Notion</span>
+          <span class="tag">Figma</span>
+          <span class="tag">Agile / Scrum</span>
+        </div>
+      </div>
+      <div class="kit-row">
+        <div class="kit-label">Engineering</div>
+        <div class="tags">
+          <span class="tag">REST APIs</span>
+          <span class="tag">Postman</span>
+          <span class="tag">Selenium</span>
+          <span class="tag">GitHub</span>
+          <span class="tag">Azure SQL Managed Instance</span>
+          <span class="tag">AWS Cognito</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BACKGROUND ============ -->
+  <section id="background" class="wrap">
+    <div class="sec-head">
+      <h2>Background</h2>
+    </div>
+
+    <div class="pair">
+      <div>
+        <p class="sub-h">Education</p>
+        <div class="stack">
+          <div class="entry">
+            <p class="t">MSc, Business Analytics</p>
+            <p class="d">University College Cork, Ireland</p>
+            <p class="w">2023 &ndash; 2024</p>
+          </div>
+          <div class="entry">
+            <p class="t">B.Tech, Computer Science</p>
+            <p class="d">SRM University, Chennai</p>
+            <p class="w">2017 &ndash; 2021</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="sub-h">Published</p>
+        <div class="stack">
+          <div class="entry">
+            <p class="t">Database Management Systems</p>
+            <p class="d">Book, co-author</p>
+          </div>
+          <div class="entry">
+            <p class="t">Digital Awareness Cyber Security</p>
+            <p class="d">Book, co-author</p>
+          </div>
+          <div class="entry">
+            <p class="t">One Click Medicine Discovery in Real Time</p>
+            <p class="d">AIP, 2024</p>
+          </div>
+          <div class="entry">
+            <p class="t">Effect of Different Weather and Incidence of Respiratory Disease</p>
+            <p class="d">Research paper</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div>
+          <h2>Let&rsquo;s talk</h2>
+          <p>
+            I&rsquo;m open to product roles in AI and B2B SaaS, particularly where someone needs to work out whether a
+            probabilistic system is actually doing its job. Based in Bengaluru.
+          </p>
+          <div class="lines">
+            <div class="line">
+              <span class="k">Email</span>
+              <span class="v" id="email">naivedya22@gmail.com</span>
+              <button class="copy" id="copyEmail" type="button">Copy</button>
+            </div>
+            <div class="line">
+              <span class="k">Phone</span>
+              <span class="v">+91 75095 44182</span>
+            </div>
+            <div class="line">
+              <span class="k">LinkedIn</span>
+              <a class="v" href="https://www.linkedin.com/in/naivedya-tiwari" target="_blank" rel="noopener">linkedin.com/in/naivedya-tiwari</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Naivedya Tiwari</span>
+    <span>Bengaluru, India</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ---- theme ---- */
+  var root = document.documentElement;
+  var btn = document.getElementById("themeBtn");
+  var icon = document.getElementById("themeIcon");
+
+  var SUN = '<circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>';
+  var MOON = '<path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"></path>';
+
+  function prefersDark() {
+    return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  }
+
+  function isDark() {
+    var set = root.getAttribute("data-theme");
+    if (set === "dark") return true;
+    if (set === "light") return false;
+    return prefersDark();
+  }
+
+  function paintIcon() {
+    icon.innerHTML = isDark() ? SUN : MOON;
+  }
+
+  try {
+    var saved = localStorage.getItem("nt-theme");
+    if (saved === "dark" || saved === "light") root.setAttribute("data-theme", saved);
+  } catch (e) { /* storage unavailable */ }
+
+  paintIcon();
+
+  btn.addEventListener("click", function () {
+    var next = isDark() ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("nt-theme", next); } catch (e) { /* ignore */ }
+    paintIcon();
+  });
+
+  if (window.matchMedia) {
+    var mq = window.matchMedia("(prefers-color-scheme: dark)");
+    var onChange = function () { if (!root.getAttribute("data-theme")) paintIcon(); };
+    if (mq.addEventListener) mq.addEventListener("change", onChange);
+    else if (mq.addListener) mq.addListener(onChange);
+  }
+
+  /* ---- copy email ---- */
+  var copyBtn = document.getElementById("copyEmail");
+  var emailEl = document.getElementById("email");
+
+  copyBtn.addEventListener("click", function () {
+    var text = emailEl.textContent.trim();
+    var done = function () {
+      copyBtn.textContent = "Copied";
+      copyBtn.classList.add("done");
+      setTimeout(function () {
+        copyBtn.textContent = "Copy";
+        copyBtn.classList.remove("done");
+      }, 1800);
+    };
+    var fallback = function () {
+      try {
+        var r = document.createRange();
+        r.selectNodeContents(emailEl);
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(r);
+        copyBtn.textContent = "Selected";
+        setTimeout(function () { copyBtn.textContent = "Copy"; }, 1800);
+      } catch (e) { /* nothing more to do */ }
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done).catch(fallback);
+    } else {
+      fallback();
+    }
+  });
+
+  /* ---- active section in nav ---- */
+  var links = Array.prototype.slice.call(document.querySelectorAll(".nav a"));
+  var targets = links
+    .map(function (a) { return document.querySelector(a.getAttribute("href")); })
+    .filter(Boolean);
+
+  if ("IntersectionObserver" in window && targets.length) {
+    var seen = {};
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { seen[en.target.id] = en.isIntersecting; });
+      var activeId = null;
+      for (var i = 0; i < targets.length; i++) {
+        if (seen[targets[i].id]) { activeId = targets[i].id; break; }
+      }
+      links.forEach(function (a) {
+        a.classList.toggle("is-active", a.getAttribute("href") === "#" + activeId);
+      });
+    }, { rootMargin: "-20% 0px -70% 0px", threshold: 0 });
+    targets.forEach(function (t) { io.observe(t); });
+  }
+})();
+</script>
+
+</body>
+</html>
